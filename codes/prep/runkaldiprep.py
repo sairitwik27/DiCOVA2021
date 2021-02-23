@@ -1,9 +1,9 @@
 from kaldiprepfunc import *
 import subprocess
 
-FOLDER_PATH = "/home/oem/Desktop/DiCOVA/Coswara/healthy"
+FOLDER_PATH = "/home/oem/Desktop/DiCOVA/Coswara/counting-normal"
 sub = [ f.path for f in os.scandir(FOLDER_PATH) if f.is_dir() ]
-print(len(sub))
+sub.sort()
 
 """
 Run this to get utt2spk and spk2utt file for aspire
@@ -13,7 +13,7 @@ TEXT_PATH = 'utt2spk'
 my_dict = uttspkdict(FOLDER_PATH)
 writeuttspk(TEXT_PATH,my_dict,'append')
 
-#subprocess.call(['sh','./getspk2utt.sh'])
+subprocess.call(['sh','/home/oem/Desktop/DiCOVA/aspireworkdir/./getspk2utt.sh'])
 
 """
 Run this to get the wavscp file for aspire

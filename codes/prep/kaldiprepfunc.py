@@ -8,7 +8,7 @@ def uttspkdict(FOLDER_PATH):
     spkrlist.sort()
     uttspk = {}
     for a in range(len(spkrlist)):
-        uttspk[spkrlist[a]] = [x for x in os.listdir(FOLDER_PATH+'/'+str(spkrlist[a])) if x.endswith("fast.wav")]
+        uttspk[spkrlist[a]] = [x for x in os.listdir(FOLDER_PATH+'/'+str(spkrlist[a])) if x.endswith("normal.wav")]
     return uttspk
 
 def writeuttspk(TEXT_PATH,dictionary,mode):
@@ -31,7 +31,7 @@ def writeuttspk(TEXT_PATH,dictionary,mode):
 
 
 def getwavpath(FOLDER_PATH):
-    my_list = list(pathlib.Path(FOLDER_PATH).glob('*fast.wav'))
+    my_list = list(pathlib.Path(FOLDER_PATH).glob('*normal.wav'))
     my_list = [x.as_posix() for x in my_list]
     my_list.sort()
     return my_list
